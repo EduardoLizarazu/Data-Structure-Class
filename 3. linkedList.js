@@ -67,11 +67,14 @@ class MySinglyLinkedList {
         // el valor 2, con el enlace next lo esta guardando
         // 2 -> 3 -> null
         const holdingPointer = firstPointer.next;
-        // 1 -> "hello" -> null
+
+        // REF: 0 -> 1 -> "hello" -> null 
+        // 1 -> "hello" -> null 
         firstPointer.next = newNode;
+        // solo tiene un pedaso como referencia en momoria
+        // REF: 0 -> 1 -> "hello" -> 2 -> 3 -> null
         // "hello" -> 2 -> 3 -> null
         newNode.next = holdingPointer;
-    
         
         this.length++;
         return this;
@@ -111,4 +114,4 @@ console.log("append", mySinglyLinkedList.append(3));
 
 console.log("prepend", mySinglyLinkedList.prepend(0));
 
-console.log("insert", mySinglyLinkedList.insert(3, "hello"))
+console.log("insert", mySinglyLinkedList.insert(2, "hello"))
