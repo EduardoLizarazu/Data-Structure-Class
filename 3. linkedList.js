@@ -96,7 +96,6 @@ class MySinglyLinkedList {
         if (index >= this.length) {
             return this.append(value);
         }
-
         // current = 0 -> 1 -> 2ª -> 3 -> null
         // remove(2) = 0 -> 1 -> 3 -> null
 
