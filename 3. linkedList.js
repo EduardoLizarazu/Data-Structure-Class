@@ -96,12 +96,17 @@ class MySinglyLinkedList {
         if (index >= this.length) {
             return this.append(value);
         }
-        const newNode = new Node(value);
-        const firstPointer = this.getTheIndex(index -1);
-        const holdingPointer = firstPointer.next;
-        firstPointer.next = newNode;
-        newNode.next = holdingPointer;
 
+        // current = 0 -> 1 -> 2ª -> 3 -> null
+        // remove(2) = 0 -> 1 -> 3 -> null
+
+        // 1 -> 2 -> 3 -> null
+        const firstPointer = this.getTheIndex(index-1);
+        // 3 -> null
+        const holdingPointer = firstPointer.next;    
+        // 2 -> 3 -> null
+        firstPointer.next = holdingPointer.next;
+        
         this.length--;
         return this;
     }
@@ -116,4 +121,6 @@ console.log("append", mySinglyLinkedList.append(3));
 
 console.log("prepend", mySinglyLinkedList.prepend(0));
 
-console.log("insert", mySinglyLinkedList.insert(2, "hello"))
+// console.log("insert", mySinglyLinkedList.insert(2, "hello"))
+
+console.log("remove", mySinglyLinkedList.remove(2));
