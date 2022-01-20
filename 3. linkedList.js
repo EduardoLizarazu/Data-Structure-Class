@@ -68,13 +68,15 @@ class MySinglyLinkedList {
         // 2 -> 3 -> null
         const holdingPointer = firstPointer.next;
 
+        // se crea tambien otra ref de memoria con newNode entre lazado con this, a partir del nodo hello ya que guarda la ref de newNode
         // REF: 0 -> 1 -> "hello" -> null 
         // 1 -> "hello" -> null 
         firstPointer.next = newNode;
-        // solo tiene un pedaso como referencia en momoria
+        // 
         // REF: 0 -> 1 -> "hello" -> 2 -> 3 -> null
         // "hello" -> 2 -> 3 -> null
         newNode.next = holdingPointer;
+        // firstPointer.next.next = holdingPointer;
         
         this.length++;
         return this;
