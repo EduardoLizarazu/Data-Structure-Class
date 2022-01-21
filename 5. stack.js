@@ -29,9 +29,12 @@ class Stack {
         return this;
     }
     pop() {
-        const holdingPointer = this.top.next;
-        this.top = holdingPointer;
-        this.length--;
+        if (this.length !== 0) {
+            const holdingPointer = this.top.next;
+            this.top = holdingPointer;
+            this.length--;
+            return this;
+        }
         return this;
     }
 }
