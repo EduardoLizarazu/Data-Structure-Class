@@ -124,5 +124,3 @@ console.log("append", mySinglyLinkedList.append(3));
 console.log("prepend", mySinglyLinkedList.prepend(0));
 
 console.log("insert", mySinglyLinkedList.insert(2, "hello"))
-
-// console.log("remove", mySinglyLinkedList.remove(2));
