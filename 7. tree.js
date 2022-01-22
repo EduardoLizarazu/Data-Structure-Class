@@ -37,6 +37,26 @@ class BinarySearchTree {
         }
     }
     // search(value) => Que busque un el numero en el arbol y que me regrese todo su nodo
+    search(value) {
+        if (value === this.root.value) {
+            return this.root;
+        } else {
+            let currentNode = this.root;
+            while (true) {
+                if (value < currentNode.value) {
+                    if (value === currentNode.left.value) return currentNode.left;
+                    currentNode = currentNode.left;
+                } else {
+                    if (value === currentNode.right.value) return currentNode.right;
+                    currentNode = currentNode.right;
+                }
+                if (!(currentNode.left && currentNode.right)) {
+                    return null;
+                }
+            }
+        }
+    }
+
      
 }
 
@@ -55,7 +75,6 @@ console.log("insert", tree.insert(8));
 console.log("insert", tree.insert(17));
 console.log("insert", tree.insert(170));
 
-
-
-
 console.log("RESULT", tree);
+
+console.log("search", tree.search(17))
