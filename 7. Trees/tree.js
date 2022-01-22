@@ -42,12 +42,19 @@ class BinarySearchTree {
             return this.root;
         } else {
             let currentNode = this.root;
+            let traceNode = this.root;
             while (true) {
                 if (value < currentNode.value) {
-                    if (value === currentNode.left.value) return currentNode.left;
+                    if (value === currentNode.left.value) {
+                        return currentNode.left;
+                    } 
+                    traceNode = currentNode;
                     currentNode = currentNode.left;
                 } else {
-                    if (value === currentNode.right.value) return currentNode.right;
+                    if (value === currentNode.right.value) {
+                        return currentNode.right;
+                    } 
+                    traceNode = currentNode;
                     currentNode = currentNode.right;
                 }
                 if (!(currentNode.left && currentNode.right)) {
