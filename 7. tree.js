@@ -56,8 +56,33 @@ class BinarySearchTree {
             }
         }
     }
-
-     
+    remove(value) {
+        if(value === this.root.value) {
+            return this.root = null;
+        } else {
+            let currentNode = this.root;
+            while(true) {
+                if (value < currentNode.value) {
+                    if (value === currentNode.left.value) {
+                        currentNode.left = null;
+                        return currentNode;
+                    } 
+                    currentNode = currentNode.left;
+                } else {
+                    if (value === currentNode.right.value) {
+                        currentNode.right = null;
+                        return currentNode;
+                    }
+                    currentNode = currentNode.right;
+                }
+                if (!(currentNode.left && currentNode.right)) {
+                    return null;
+                }
+            }
+        }
+    }
+    // Advantages of BST over Hash Table - METHOD
+ 
 }
 
 //       10  
@@ -77,4 +102,6 @@ console.log("insert", tree.insert(170));
 
 console.log("RESULT", tree);
 
-console.log("search", tree.search(17))
+console.log("search", tree.search(1))
+
+console.log("remove", tree.remove(3))
